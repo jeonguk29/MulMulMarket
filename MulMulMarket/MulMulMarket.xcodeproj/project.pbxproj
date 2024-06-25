@@ -29,6 +29,9 @@
 		64804BE62C2942C200931573 /* infoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64804BE52C2942C200931573 /* infoView.swift */; };
 		64804BE82C29441000931573 /* TitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64804BE72C29441000931573 /* TitleModifier.swift */; };
 		64804BEA2C29478B00931573 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64804BE92C29478B00931573 /* ButtonModifier.swift */; };
+		64804BEF2C29742000931573 /* sound-click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64804BEC2C29742000931573 /* sound-click.mp3 */; };
+		64804BF02C29742000931573 /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64804BED2C29742000931573 /* sound-rise.mp3 */; };
+		64804BF42C29BE9A00931573 /* SymbolModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64804BF32C29BE9900931573 /* SymbolModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		64804BE52C2942C200931573 /* infoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoView.swift; sourceTree = "<group>"; };
 		64804BE72C29441000931573 /* TitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleModifier.swift; sourceTree = "<group>"; };
 		64804BE92C29478B00931573 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
+		64804BEC2C29742000931573 /* sound-click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-click.mp3"; sourceTree = "<group>"; };
+		64804BED2C29742000931573 /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
+		64804BF32C29BE9900931573 /* SymbolModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 		64251CB52BE3698800D8103A /* MulMulMarket */ = {
 			isa = PBXGroup;
 			children = (
+				64804BF52C2A9A1200931573 /* Extension */,
 				64804BEB2C29482600931573 /* Modifier */,
 				64804BDE2C284F1600931573 /* Component */,
 				64804BD32C281AE500931573 /* Data */,
@@ -135,6 +142,7 @@
 				64804BD82C283BC200931573 /* ContentView.swift */,
 				64251CBA2BE3698C00D8103A /* Assets.xcassets */,
 				64251CBC2BE3698C00D8103A /* Preview Content */,
+				64804BEE2C29742000931573 /* Sound */,
 				64251CE32BE36ACA00D8103A /* Resource */,
 			);
 			path = MulMulMarket;
@@ -206,8 +214,25 @@
 			children = (
 				64804BE92C29478B00931573 /* ButtonModifier.swift */,
 				64804BE72C29441000931573 /* TitleModifier.swift */,
+				64804BF32C29BE9900931573 /* SymbolModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		64804BEE2C29742000931573 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				64804BEC2C29742000931573 /* sound-click.mp3 */,
+				64804BED2C29742000931573 /* sound-rise.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		64804BF52C2A9A1200931573 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		6496D35A2BE36EBC0078C247 /* View */ = {
@@ -327,7 +352,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				64251CBE2BE3698C00D8103A /* Preview Assets.xcassets in Resources */,
+				64804BEF2C29742000931573 /* sound-click.mp3 in Resources */,
 				64251CE52BE36ACB00D8103A /* Colors.xcassets in Resources */,
+				64804BF02C29742000931573 /* sound-rise.mp3 in Resources */,
 				64251CE42BE36ACB00D8103A /* Assets.xcassets in Resources */,
 				64251CE62BE36ACB00D8103A /* LaunchScreen.storyboard in Resources */,
 				64251CBB2BE3698C00D8103A /* Assets.xcassets in Resources */,
@@ -360,6 +387,7 @@
 				64804BDD2C284A8400931573 /* FooterView.swift in Sources */,
 				64804BE82C29441000931573 /* TitleModifier.swift in Sources */,
 				64804BDB2C283C6A00931573 /* HeaderView.swift in Sources */,
+				64804BF42C29BE9A00931573 /* SymbolModifier.swift in Sources */,
 				64804BE62C2942C200931573 /* infoView.swift in Sources */,
 				64804BD92C283BC200931573 /* ContentView.swift in Sources */,
 				64804BEA2C29478B00931573 /* ButtonModifier.swift in Sources */,
