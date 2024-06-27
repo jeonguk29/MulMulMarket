@@ -10,6 +10,7 @@ import SwiftUI
 struct FooterView: View {
     
     @Binding var showBookingAlert: Bool
+    let haptics = UINotificationFeedbackGenerator() // 이 클래스는 iOS 기기에서 햅틱 피드백(진동)을 생성하는 역할
     
     var body: some View {
         HStack {
@@ -19,6 +20,8 @@ struct FooterView: View {
             
             Button {
                 // Action
+                playSound(sound: "sound-click", type: "mp3") // 사운드를 재생
+                self.haptics.notificationOccurred(.success) // 진동을 발생 
                 self.showBookingAlert.toggle()
             } label: {
                 Text("Book Destination".uppercased())

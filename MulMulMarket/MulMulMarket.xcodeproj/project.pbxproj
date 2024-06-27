@@ -32,6 +32,10 @@
 		64804BEF2C29742000931573 /* sound-click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64804BEC2C29742000931573 /* sound-click.mp3 */; };
 		64804BF02C29742000931573 /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64804BED2C29742000931573 /* sound-rise.mp3 */; };
 		64804BF42C29BE9A00931573 /* SymbolModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64804BF32C29BE9900931573 /* SymbolModifier.swift */; };
+		64804BF72C2A9AA300931573 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64804BF62C2A9AA300931573 /* CardTransition.swift */; };
+		64804BFA2C2A9E9A00931573 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64804BF92C2A9E9A00931573 /* PlaySound.swift */; };
+		64804C022C2AA21900931573 /* sound-click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64804BEC2C29742000931573 /* sound-click.mp3 */; };
+		64804C032C2AA21900931573 /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64804BED2C29742000931573 /* sound-rise.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,8 @@
 		64804BEC2C29742000931573 /* sound-click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-click.mp3"; sourceTree = "<group>"; };
 		64804BED2C29742000931573 /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		64804BF32C29BE9900931573 /* SymbolModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolModifier.swift; sourceTree = "<group>"; };
+		64804BF62C2A9AA300931573 /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
+		64804BF92C2A9E9A00931573 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,7 @@
 		64251CB52BE3698800D8103A /* MulMulMarket */ = {
 			isa = PBXGroup;
 			children = (
+				64804BF82C2A9E5C00931573 /* Helper */,
 				64804BF52C2A9A1200931573 /* Extension */,
 				64804BEB2C29482600931573 /* Modifier */,
 				64804BDE2C284F1600931573 /* Component */,
@@ -231,8 +238,17 @@
 		64804BF52C2A9A1200931573 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				64804BF62C2A9AA300931573 /* CardTransition.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		64804BF82C2A9E5C00931573 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				64804BF92C2A9E9A00931573 /* PlaySound.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		6496D35A2BE36EBC0078C247 /* View */ = {
@@ -372,6 +388,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64804C022C2AA21900931573 /* sound-click.mp3 in Resources */,
+				64804C032C2AA21900931573 /* sound-rise.mp3 in Resources */,
 				64804BCE2C2818F900931573 /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,10 +405,12 @@
 				64804BDD2C284A8400931573 /* FooterView.swift in Sources */,
 				64804BE82C29441000931573 /* TitleModifier.swift in Sources */,
 				64804BDB2C283C6A00931573 /* HeaderView.swift in Sources */,
+				64804BF72C2A9AA300931573 /* CardTransition.swift in Sources */,
 				64804BF42C29BE9A00931573 /* SymbolModifier.swift in Sources */,
 				64804BE62C2942C200931573 /* infoView.swift in Sources */,
 				64804BD92C283BC200931573 /* ContentView.swift in Sources */,
 				64804BEA2C29478B00931573 /* ButtonModifier.swift in Sources */,
+				64804BFA2C2A9E9A00931573 /* PlaySound.swift in Sources */,
 				64804BE02C284F3500931573 /* HeaderComponent.swift in Sources */,
 				64804BD22C281A2200931573 /* ProductModel.swift in Sources */,
 				64804BD72C28240600931573 /* CardView.swift in Sources */,

@@ -20,6 +20,8 @@ struct ContentView: View {
     
     @State private var lastCardIndex: Int = 1 // 현재 마지막 카드의 인덱스를 추적하는 변수로, 새로운 카드를 추가할 때 사용
     
+    @State private var cardRemovalTransition = AnyTransition.trailingBottom
+    
     // MARK: - CARD VIEWS
     @State var cardViews: [CardView] = {
         var views = [CardView]()
@@ -135,6 +137,19 @@ struct ContentView: View {
                                         break
                                     }
                                 }
+                                .onChanged({ (value) in
+                                    guard case .second(true, let drag?) = value else {
+                                        return
+                                    }
+                                    // 뷰가 왼쪽 오른쪽 사라질때 확장 애니메이션 추가
+                                    if drag.translation.width < -self.dragAreaThreshold {
+                                        self.cardRemovalTransition = .leadingBottom
+                                    }
+                                    
+                                    if drag.translation.width > self.dragAreaThreshold {
+                                        self.cardRemovalTransition = .trailingBottom
+                                    }
+                                })
                                 .onEnded { value in
                                     // 제스처가 끝났을 때 호출됩니다.
                                     // 사용자가 카드를 드래그하여 일정 거리 이상 움직였을 때 최상위 카드를 제거하고 새로운 카드를 추가
@@ -143,10 +158,11 @@ struct ContentView: View {
                                     }
                                     
                                     if drag.translation.width < -self.dragAreaThreshold || drag.translation.width > self.dragAreaThreshold {
+                                        playSound(sound: "sound-rise", type: "mp3")
                                         self.moveCards()
                                     }
                                 }
-                        )
+                        ).transition(self.cardRemovalTransition)
                     /*LongPressGesture와 DragGesture를 순서대로 인식합니다.
                     updating 블록에서는 제스처 상태(dragState)를 업데이트합니다.
                     .first(true): 길게 누르기가 시작된 상태입니다. 이 상태에서는 state를 .pressing으로 설정합니다.
