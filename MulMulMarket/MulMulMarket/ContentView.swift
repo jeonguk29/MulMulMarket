@@ -46,6 +46,7 @@ struct ContentView: View {
     }
     
     
+    
     /*
      isTopCard 메서드는 특정 cardView가 카드 스택의 최상위에 있는지 확인합니다.
      cardViews 배열에서 주어진 cardView의 인덱스를 찾고, 그 인덱스가 0인지(즉, 최상위인지) 확인합니다.
