@@ -21,7 +21,7 @@ struct ContentView: View {
                     }
                     .tag(0) // 0번 화면
                 
-                Text("둘러보기 화면")
+                ProductUpLoadView()
                     .tabItem {
                         Image(systemName: "arrow.triangle.2.circlepath.camera")
                         Text("upload")

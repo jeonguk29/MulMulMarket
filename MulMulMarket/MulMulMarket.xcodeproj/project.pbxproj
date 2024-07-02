@@ -11,6 +11,11 @@
 		64218EB52C318D8B00DB22B9 /* CountTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64218EB42C318D8B00DB22B9 /* CountTimer.swift */; };
 		64218EB72C318DFF00DB22B9 /* StroyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64218EB62C318DFF00DB22B9 /* StroyDetailView.swift */; };
 		64218EBA2C326A2200DB22B9 /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64218EB92C326A2200DB22B9 /* MainCardView.swift */; };
+		64218EBE2C32715A00DB22B9 /* ProductUpLoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64218EBD2C32715A00DB22B9 /* ProductUpLoadView.swift */; };
+		64218EC02C32787100DB22B9 /* SelectPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64218EBF2C32787100DB22B9 /* SelectPhotos.swift */; };
+		64218ECB2C32847C00DB22B9 /* TaggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64218ECA2C32847B00DB22B9 /* TaggingView.swift */; };
+		64218ECD2C32884A00DB22B9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64218ECC2C32884A00DB22B9 /* TagView.swift */; };
+		64218ED02C32888A00DB22B9 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64218ECF2C32888A00DB22B9 /* Tag.swift */; };
 		64251CB72BE3698800D8103A /* MulMulMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64251CB62BE3698800D8103A /* MulMulMarketApp.swift */; };
 		64251CBB2BE3698C00D8103A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64251CBA2BE3698C00D8103A /* Assets.xcassets */; };
 		64251CBE2BE3698C00D8103A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64251CBD2BE3698C00D8103A /* Preview Assets.xcassets */; };
@@ -64,6 +69,11 @@
 		64218EB42C318D8B00DB22B9 /* CountTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTimer.swift; sourceTree = "<group>"; };
 		64218EB62C318DFF00DB22B9 /* StroyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroyDetailView.swift; sourceTree = "<group>"; };
 		64218EB92C326A2200DB22B9 /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
+		64218EBD2C32715A00DB22B9 /* ProductUpLoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUpLoadView.swift; sourceTree = "<group>"; };
+		64218EBF2C32787100DB22B9 /* SelectPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotos.swift; sourceTree = "<group>"; };
+		64218ECA2C32847B00DB22B9 /* TaggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggingView.swift; sourceTree = "<group>"; };
+		64218ECC2C32884A00DB22B9 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		64218ECF2C32888A00DB22B9 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		64251CB32BE3698800D8103A /* MulMulMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MulMulMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64251CB62BE3698800D8103A /* MulMulMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulMulMarketApp.swift; sourceTree = "<group>"; };
 		64251CBA2BE3698C00D8103A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,8 +158,29 @@
 		64218EBB2C3270C600DB22B9 /* ProductUploadView */ = {
 			isa = PBXGroup;
 			children = (
+				64218EC72C32844000DB22B9 /* TaggingView */,
+				64218EBD2C32715A00DB22B9 /* ProductUpLoadView.swift */,
+				64218EBF2C32787100DB22B9 /* SelectPhotos.swift */,
 			);
 			path = ProductUploadView;
+			sourceTree = "<group>";
+		};
+		64218EC72C32844000DB22B9 /* TaggingView */ = {
+			isa = PBXGroup;
+			children = (
+				64218ECE2C32887E00DB22B9 /* Model */,
+				64218ECA2C32847B00DB22B9 /* TaggingView.swift */,
+				64218ECC2C32884A00DB22B9 /* TagView.swift */,
+			);
+			path = TaggingView;
+			sourceTree = "<group>";
+		};
+		64218ECE2C32887E00DB22B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				64218ECF2C32888A00DB22B9 /* Tag.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		64251CAA2BE3698800D8103A = {
@@ -437,13 +468,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64218ECB2C32847C00DB22B9 /* TaggingView.swift in Sources */,
 				64251CB72BE3698800D8103A /* MulMulMarketApp.swift in Sources */,
 				64804BDD2C284A8400931573 /* FooterView.swift in Sources */,
+				64218EC02C32787100DB22B9 /* SelectPhotos.swift in Sources */,
 				64218EB32C318BF600DB22B9 /* LoadingBar.swift in Sources */,
 				64804BE82C29441000931573 /* TitleModifier.swift in Sources */,
 				64804BDB2C283C6A00931573 /* HeaderView.swift in Sources */,
+				64218ED02C32888A00DB22B9 /* Tag.swift in Sources */,
 				64804BF72C2A9AA300931573 /* CardTransition.swift in Sources */,
 				64804BF42C29BE9A00931573 /* SymbolModifier.swift in Sources */,
+				64218EBE2C32715A00DB22B9 /* ProductUpLoadView.swift in Sources */,
 				64804BE62C2942C200931573 /* infoView.swift in Sources */,
 				64218EB72C318DFF00DB22B9 /* StroyDetailView.swift in Sources */,
 				64804BD92C283BC200931573 /* ContentView.swift in Sources */,
@@ -457,6 +492,7 @@
 				64804BE22C285AE000931573 /* GuideComponent.swift in Sources */,
 				64804BE42C285DB300931573 /* GuideView.swift in Sources */,
 				64218EBA2C326A2200DB22B9 /* MainCardView.swift in Sources */,
+				64218ECD2C32884A00DB22B9 /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
