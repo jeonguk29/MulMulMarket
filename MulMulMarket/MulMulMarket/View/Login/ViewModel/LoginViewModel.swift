@@ -5,80 +5,109 @@
 //  Created by 정정욱 on 7/2/24.
 //
 
-
 import SwiftUI
 import FirebaseAuth
+import Combine
 
 class LoginViewModel: ObservableObject {
     
+    // MARK: - Published Properties
+    
     @Published var phNo = ""
     @Published var code = ""
-    
-    // 인증코드 실패시
     @Published var errorMsg = ""
     @Published var error = false
-    
-    // Storing CODE for verification..
     @Published var CODE = ""
     @Published var gotoVerify = false
-    @AppStorage("log_Status") var status = false
-    @Published var loading = false
+    @Published var userSession: FirebaseAuth.User?
+    @Published var loading = false // 이걸로 Verification View에서 ProgressView를 돌림 
     
-    // 현재 디바이스의 지역에 해당하는 국가 코드를 반환 ex 한국에서는 "KR" 리턴 값은 82
+    // MARK: - Private Properties
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    // MARK: - Initialization
+    
+    init(){
+        setupSubscribers()
+    }
+    
+    // MARK: - Subscribers Setup
+    
+    ///컴바인을 활용해 로그인했는지 확인하는 코드
+    /// - Parameters:
+    ///   - x : x
+    /// - Returns: x
+    private func setupSubscribers() {
+        AuthService.shared.$userSession
+            .sink { [weak self] userSessionFromAuthService in
+                self?.userSession = userSessionFromAuthService
+            }
+            .store(in: &cancellables)
+    }
+
+    /// / 현재 디바이스의 지역에 해당하는 국가 코드를 반환 ex 한국에서는 "KR" 리턴 값은 82
+    /// - Parameters:
+    ///   - x : x
+    /// - Returns: 국가코드
     func getCountryCode() -> String {
-       
         let regionCode = Locale.current.regionCode ?? ""
-        
         return countries[regionCode] ?? ""
     }
     
-    // sending code ke user
+    /// 전화번호를 통해 인증 코드를 받는 코드
+    /// - Parameters:
+    ///   - x : x
+    /// - Returns: x
     func sendCode() {
         
-//        Auth.auth().settings?.isAppVerificationDisabledForTesting = true
-        /*
-         isAppVerificationDisabledForTesting = true를 설정하면, Firebase는 실제 SMS 메시지를 보내지 않고도 테스트용으로 전화번호 인증을 수행할 수 있게 해줍니다. 이 설정을 사용하면 전화번호 인증을 쉽게 테스트할 수 있습니다.
-         */
         let number = "+\(getCountryCode())\(phNo)"
         
+        /*
+         Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+         isAppVerificationDisabledForTesting = true를 설정하면, Firebase는 실제 SMS 메시지를 보내지 않고도 테스트용으로
+         전화번호 인증을 수행할 수 있게 해줍니다. 이 설정을 사용하면 전화번호 인증을 쉽게 테스트할 수 있습니다.
+         */
+        
         PhoneAuthProvider.provider().verifyPhoneNumber(number, uiDelegate: nil) { (CODE, err) in
-            
             if let error = err {
-                
                 self.errorMsg = error.localizedDescription
-                withAnimation{self.error.toggle()}
+                withAnimation { self.error.toggle() }
                 return
             }
             
-            self.CODE = CODE ?? "" // 인증 코드 받기
+            self.CODE = CODE ?? ""
             self.gotoVerify = true
         }
     }
     
-    // 코드 인증, 인증 성공시 사용자를 로그인
+    
+    /// 인증 코드를 통해 유효한 값인지 확인하고 계정을 로그인 및 생성
+    /// - Parameters:
+    ///   -
+    /// - Returns:
     func verifyCode() {
-        
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.CODE, verificationCode: code) // verificationCode를 사용하여 전화번호 인증 자격 증명(credential)을 생성합니다.
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.CODE, verificationCode: code)
         
         loading = true
         
-        // 인증을 기반으로 로그인
-        Auth.auth().signIn(with: credential) { (result, err) in
-            
-            self.loading = false
-            
-            if let error = err {
-                self.errorMsg = error.localizedDescription
-                withAnimation{self.error.toggle()}
-                return
+        Task {
+            do {
+                try await AuthService.shared.login(credential: credential)
+                DispatchQueue.main.async {
+                    self.loading = false
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.loading = false
+                    self.errorMsg = error.localizedDescription
+                    withAnimation { self.error.toggle() }
+                }
             }
-            
-            withAnimation{self.status = true}
         }
     }
     
     func requestCode() {
-        
         sendCode()
         
         withAnimation {
@@ -86,4 +115,5 @@ class LoginViewModel: ObservableObject {
             self.error.toggle()
         }
     }
+    
 }

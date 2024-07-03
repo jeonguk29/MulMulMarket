@@ -17,30 +17,17 @@ import Firebase
 import FirebaseAuth
 
 struct Home: View {
-    @AppStorage("log_Status") var status = false
     
+    @StateObject var viewModel = LoginViewModel()
     var body: some View {
-        VStack(spacing: 15) {
-            Text("Logged In Successfully")
-                .font(.title)
-                .fontWeight(.heavy)
-                .foregroundColor(.black)
-            
-            Button(action: {
-                let firebaseAuth = Auth.auth()
-                       do {
-                           try firebaseAuth.signOut()
-                           withAnimation{ status = false }
-                       }
-                       catch let signOutError as NSError {
-                           print ("Error signing out: %@", signOutError)
-                       }
-                
-            }, label: {
-                Text("LogOut")
-                    .fontWeight(.heavy)
-            })
+        Group {
+            if viewModel.userSession != nil {
+                ()
+            } else {
+                LoginView()
+            }
         }
+    }
         
     }
 }

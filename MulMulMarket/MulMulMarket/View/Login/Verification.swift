@@ -73,8 +73,11 @@ struct Verification: View {
                             .frame(width: UIScreen.main.bounds.width - 30)
                             .background(Color(.pink))
                             .cornerRadius(20)
+                        
+                        
                     }
                     .padding()
+                    
                 }
                 .frame(height: UIScreen.main.bounds.height / 1.8)// 화면 전체 높이의 1.8분의 1로 설정
                 .background(Color.white)

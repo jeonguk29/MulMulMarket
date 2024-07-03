@@ -26,7 +26,7 @@ struct AlertView: View {
             Button(action: {
                     show.toggle()
             }, label: {
-                Text("Ok")
+                Text("확인")
                     .foregroundColor(.black)
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 100)
